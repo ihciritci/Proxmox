@@ -1,0 +1,18 @@
+$ systemctl stop pve-cluster
+
+rm -f /etc/pve/cluster.conf /etc/pve/corosync.conf
+rm -f /etc/cluster/cluster.conf /etc/corosync/corosync.conf
+rm /var/lib/pve-cluster/.pmxcfs.lockfile
+
+
+$ systemctl start pve-cluster
+
+# delete  /etc/pve/corosync/corosync.conf. 
+
+
+systemctl stop pve-cluster corosync
+pmxcfs -l
+rm -r /etc/corosync/*
+rm -r /etc/pve/corosync.conf
+killall pmxcfs
+systemctl start pve-cluster
