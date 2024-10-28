@@ -1,0 +1,20 @@
+nano /etc/pve/qemu-server/100.conf
+
+scsi1: local-lvm:vm-100-disk-1,size=20G
+
+
+
+
+qemu-img convert -f qcow2 -O raw /kaynak/yolu/disk.qcow2 /hedef/yolu/disk.raw
+
+
+
+
+2. qm set                             to Attach the Disk as an IDE Drive
+
+qm set 101 --ide0 local:101/disk.qcow2
+qm set 101 --scsi0 local:101/disk.qcow2
+
+# 101: Specifies the VM ID.
+# --ide0: Adds the disk as an IDE drive.
+# local:101/disk.qcow2: Refers to the .qcow2 file in the local storage pool under the 101 directory.
