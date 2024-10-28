@@ -1,0 +1,6 @@
+
+
+qm unlock [vmid]
+
+ps aux | grep "/usr/bin/kvm -id [VMID]"
+kill -9 [PID]
