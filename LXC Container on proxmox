@@ -1,0 +1,80 @@
+
+$ pveam update
+
+$ pveam available
+
+
+$ pveam available --section system
+
+system          almalinux-9-default_20221108_amd64.tar.xz
+system          alpine-3.18-default_20230607_amd64.tar.xz
+system          alpine-3.19-default_20240207_amd64.tar.xz
+system          archlinux-base_20230608-1_amd64.tar.zst
+system          centos-9-stream-default_20221109_amd64.tar.xz
+system          debian-11-standard_11.7-1_amd64.tar.zst
+system          debian-12-standard_12.2-1_amd64.tar.zst
+system          devuan-4.0-standard_4.0_amd64.tar.gz
+system          fedora-38-default_20230607_amd64.tar.xz
+system          fedora-39-default_20231118_amd64.tar.xz
+system          gentoo-current-openrc_20231009_amd64.tar.xz
+system          opensuse-15.4-default_20221109_amd64.tar.xz
+system          opensuse-15.5-default_20231118_amd64.tar.xz
+system          rockylinux-9-default_20221109_amd64.tar.xz
+system          ubuntu-20.04-standard_20.04-1_amd64.tar.gz
+system          ubuntu-22.04-standard_22.04-1_amd64.tar.zst
+system          ubuntu-23.04-standard_23.04-1_amd64.tar.zst
+system          ubuntu-23.10-standard_23.10-1_amd64.tar.zst
+
+turnkeylinux    debian-12-turnkey-nextcloud_18.0-1_amd64.tar.gz
+turnkeylinux    debian-12-turnkey-openvpn_18.0-1_amd64.tar.gz
+turnkeylinux    debian-12-turnkey-gitlab_18.0-1_amd64.tar.gz
+turnkeylinux    debian-11-turnkey-redis_17.1-1_amd64.tar.gz
+
+turnkeylinux    debian-11-turnkey-jenkins_17.1-1_amd64.tar.gz
+turnkeylinux    debian-11-turnkey-ansible_17.1-1_amd64.tar.gz
+
+turnkeylinux    debian-11-turnkey-domain-controller_17.1-1_amd64.tar.gz
+
+turnkeylinux    debian-12-turnkey-mysql_18.0-1_amd64.tar.gz
+turnkeylinux    debian-12-turnkey-postgresql_18.0-1_amd64.tar.gz
+turnkeylinux    debian-10-turnkey-mongodb_16.1-1_amd64.tar.gz
+
+mail            proxmox-mailgateway-8.0-standard_8.0-1_amd64.tar.zst
+
+
+
+
+
+
+$ pveam download local  ubuntu-20.04-standard_20.04-1_amd64.tar.gz
+
+
+
+downloading http://download.proxmox.com/images/system/ubuntu-20.04-standard_20.04-1_amd64.tar.gz to /var/lib/vz/template/cache/ubuntu-20.04-standard_20.04-1_amd64.tar.gz
+--2024-04-19 20:03:50--  http://download.proxmox.com/images/system/ubuntu-20.04-standard_20.04-1_amd64.tar.gz
+Resolving download.proxmox.com (download.proxmox.com)... 2001:41d0:203:7470::34, 51.91.38.34
+Connecting to download.proxmox.com (download.proxmox.com)|2001:41d0:203:7470::34|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 214203058 (204M) [application/octet-stream]
+Saving to: '/var/lib/vz/template/cache/ubuntu-20.04-standard_20.04-1_amd64.tar.gz.tmp_dwnl.3505203'
+     0K ........ ........ ........ ........ 15%  441M 0s
+ 32768K ........ ........ ........ ........ 31%  253M 0s
+ 65536K ........ ........ ........ ........ 46%  112M 1s
+ 98304K ........ ........ ........ ........ 62%  163M 0s
+131072K ........ ........ ........ ........ 78%  143M 0s
+163840K ........ ........ ........ ........ 93%  150M 0s
+196608K ........ ....                      100%  178M=1.2s
+2024-04-19 20:03:51 (172 MB/s) - '/var/lib/vz/template/cache/ubuntu-20.04-standard_20.04-1_amd64.tar.gz.tmp_dwnl.3505203' saved [214203058/214203058]
+calculating checksum...OK, checksum verified
+download of 'http://download.proxmox.com/images/system/ubuntu-20.04-standard_20.04-1_amd64.tar.gz' to '/var/lib/vz/template/cache/ubuntu-20.04-standard_20.04-1_amd64.tar.gz' finished
+
+
+
+
+
+$ pveam list local
+
+
+# pveam remove local:vztmpl/debian-10.0-standard_10.0-1_amd64.tar.gz
+
+# pct create 999 local:vztmpl/debian-10.0-standard_10.0-1_amd64.tar.gz
