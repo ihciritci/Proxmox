@@ -1,0 +1,13 @@
+lsblk
+
+sudo mkfs.ext4 /dev/sdX
+
+sudo mkdir /mnt/newdisk
+
+sudo mount /dev/sdX /mnt/newdisk
+
+mkfs.ext4 /dev/sda
+mkfs.ext4 /dev/sdb
+
+mount /dev/sda var/lib/vz6TB1_DC4
+mount /dev/sdb var/lib/vz6TB2_DC4
