@@ -1,0 +1,48 @@
+#################ZFS_on_Linux  ###############
+###https://pve.proxmox.com/wiki/ZFS_on_Linux
+
+RAID0 		Also called “striping”. The capacity of such volume is the sum of the capacities of all disks. 
+			But RAID0 does not add any redundancy, so the failure of a single drive makes the volume unusable.
+
+RAID1		Also called “mirroring”. Data is written identically to all disks. 
+			This mode requires at least 2 disks with the same size. 
+			The resulting capacity is that of a single disk.
+
+RAID10 		A combination of RAID0 and RAID1. Requires at least 4 disks.
+
+RAIDZ-1 	A variation on RAID-5, single parity. Requires at least 3 disks.
+
+RAIDZ-2     A variation on RAID-5, double parity. Requires at least 4 disks.
+
+RAIDZ-3		A variation on RAID-5, triple parity. Requires at least 5 disks.
+
+**creates a ZFS pool called rpool, 
+  and installs the root file system on the ZFS subvolume 
+  
+  rpool/ROOT/pve-1
+  
+  rpool/data      # is created to store VM images.
+  
+ /etc/pve/storage.cfg   #   configuration entry in
+ 
+ zfspool: local-zfs
+        pool rpool/data
+        sparse
+        content images,rootdir
+		
+ $ zpool status
+ 
+ # zfs list
+	root@ZerBackupCloud:~# zfs list
+	NAME      USED  AVAIL  REFER  MOUNTPOINT
+	zfs_ab1   432K  19.9T    96K  /zfs_ab1
+	zfs_cd2   432K  19.9T    96K  /zfs_cd2
+	zfs_ef3   444K  19.9T    96K  /zfs_ef3
+	zfs_gh4   408K  19.9T    96K  /zfs_gh4
+	
+ 
+ zfs snapshot mypool/vm_data@snapshot_name
+
+ zfs create -V 21T zfs_ab1/vm_21tb_disk
+
+zfs list
