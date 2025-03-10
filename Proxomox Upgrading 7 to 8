@@ -1,0 +1,13 @@
+apt update && apt full-upgrade -y
+pveversion  # Mevcut sürümü kontrol et
+     # Repo updating from 7 to 8
+sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
+sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list.d/pve-enterprise.list
+sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list.d/pve-no-subscription.list
+
+echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list
+
+apt update
+apt dist-upgrade -y
+reboot
+pveversion
